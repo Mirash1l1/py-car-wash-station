@@ -38,7 +38,7 @@ class CarWashStation:
         for car_object in list_objects_class_car:
             if car_object.clean_mark < self.clean_power:
                 income += self.calculate_washing_price(car_object)
-                wash_single_car(car_object)
+                self.wash_single_car(car_object)
 
         return round(income, 1)
 
@@ -48,4 +48,7 @@ class CarWashStation:
 
     def rate_service(self, number_rating: float) -> None:
         self.count_of_ratings += 1
-        self.average_rating = (self.average_rating * self.count_of_ratings + rating) / (self.count_of_ratings + 1)
+        self.average_rating = (
+                        self.average_rating * self.count_of_ratings
+                        + number_rating
+                        ) / (self.count_of_ratings + 1)
